@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul">
+
+    <window id="win" width="850px" action="show: slideDown; hide: slideUp" apply="controlador.paginas.ReportController">
+            <separator/>
+            <div sclass="row">  
+                <div sclass="col-lg-6">
+                    <div sclass="row">
+                        <div sclass="conteudo">
+                            <div sclass="btn-group">
+                                <button sclass="btn-primary" tooltiptext="Gerar" height="38px" id="gerar">Obras</button>
+                                <button sclass="btn-primary" tooltiptext="Gerar" height="38px" id="gerarU">Utentes</button>
+                                <button sclass="btn-primary" tooltiptext="Gerar" height="38px" id="gerarE">Emprestimos</button>
+                                <button sclass="btn-primary" tooltiptext="Gerar" height="38px" id="gerarM">Multas</button>
+                                <button sclass="btn-danger" image="/Icons/ic_close.png" label="Cancelar" onClick="win.detach()" id="sair" tooltiptext="Sair"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </window>
+</zk>
