@@ -19,6 +19,7 @@ import org.zkoss.zk.ui.select.annotation.Listen;
 import org.zkoss.zk.ui.select.annotation.Wire;
 import org.zkoss.zul.Label;
 import org.zkoss.zul.Textbox;
+import servicos.Acesso;
 import servicos.Autenticacao;
 import servicos.AutenticacaoImpl;
 import servicos.UserCredential;
@@ -37,6 +38,7 @@ public class LoginController extends SelectorComposer<Component> {
 
     //services
     Autenticacao authService = new AutenticacaoImpl();
+    Acesso acesso = new Acesso();
 
     @Listen("onClick=#login; onOK=#loginWin")
     public void doLogin() {
@@ -52,6 +54,14 @@ public class LoginController extends SelectorComposer<Component> {
                 message.setVisible(true);
                 return;
             }
+            
+            
+            if(acesso.bloquear1(nm)==1){
+                message.setValue("Sua conta foi bloqueada!");
+                message.setVisible(true);
+                return;
+            }
+            
 
             if (authService.login(nm, pd) == 2) {
                 message.setValue("Sua conta esta bloqueada!");
